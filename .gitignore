@@ -1,0 +1,76 @@
+# =========================
+# Environment
+# =========================
+
+.env
+.env.*
+!.env.example
+
+
+# =========================
+# Python
+# =========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.venv/
+venv/
+env/
+
+*.egg-info/
+dist/
+build/
+
+
+# =========================
+# IDE
+# =========================
+
+.idea/
+.vscode/
+
+*.iml
+
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+
+
+# =========================
+# Logs
+# =========================
+
+*.log
+logs/
+
+
+# =========================
+# Database / Local data
+# =========================
+
+postgres/data/
+
+# =========================
+# Application generated files
+# =========================
+
+generated/
+uploads/
+tmp/
+
+
+# =========================
+# Docker
+# =========================
+
+docker-compose.override.yml
