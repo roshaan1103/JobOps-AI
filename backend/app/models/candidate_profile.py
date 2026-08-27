@@ -96,3 +96,8 @@ class CandidateProfile(Base):
         back_populates="candidate_profile",
         cascade="all, delete-orphan",
     )
+
+    skills: Mapped[list["Skill"]] = relationship(
+        back_populates="candidate_profile",
+        cascade="all, delete-orphan",
+    )

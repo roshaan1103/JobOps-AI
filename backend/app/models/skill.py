@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from sqlalchemy import DateTime, String
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import DateTime, Float, ForeignKey, String, UniqueConstraint
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.session import Base
 
@@ -9,14 +9,30 @@ from app.db.session import Base
 class Skill(Base):
     __tablename__ = "skills"
 
+    __table_args__ = (
+        UniqueConstraint(
+            "candidate_profile_id",
+            "name",
+            name="uq_candidate_skill_name",
+        ),
+    )
+
     id: Mapped[int] = mapped_column(
         primary_key=True,
         index=True,
     )
 
+    candidate_profile_id: Mapped[int] = mapped_column(
+        ForeignKey(
+            "candidate_profiles.id",
+            ondelete="CASCADE",
+        ),
+        nullable=False,
+        index=True,
+    )
+
     name: Mapped[str] = mapped_column(
         String(255),
-        unique=True,
         nullable=False,
         index=True,
     )
@@ -32,6 +48,7 @@ class Skill(Base):
     )
 
     years_experience: Mapped[float | None] = mapped_column(
+        Float,
         nullable=True,
     )
 
@@ -39,4 +56,8 @@ class Skill(Base):
         DateTime,
         default=datetime.utcnow,
         nullable=False,
+    )
+
+    candidate_profile: Mapped["CandidateProfile"] = relationship(
+        back_populates="skills",
     )

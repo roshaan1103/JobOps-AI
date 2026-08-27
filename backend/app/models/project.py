@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 
 from sqlalchemy import Date, DateTime, ForeignKey, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -39,12 +39,12 @@ class Project(Base):
         nullable=True,
     )
 
-    start_date: Mapped[datetime | None] = mapped_column(
+    start_date: Mapped[date | None] = mapped_column(
         Date,
         nullable=True,
     )
 
-    end_date: Mapped[datetime | None] = mapped_column(
+    end_date: Mapped[date | None] = mapped_column(
         Date,
         nullable=True,
     )
