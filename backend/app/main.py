@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from app.core.config import get_settings
 from app.db.health import check_database_connection
-
+from app.api.v1.router import api_router
 
 settings = get_settings()
 
@@ -12,6 +12,7 @@ app = FastAPI(
     description="AI-powered job search and application automation platform.",
 )
 
+app.include_router(api_router)
 
 @app.get("/")
 def root():
