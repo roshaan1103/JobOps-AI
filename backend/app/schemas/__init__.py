@@ -10,6 +10,12 @@ from app.schemas.skill import (
     SkillUpdate,
 )
 
+from app.schemas.education import (
+    EducationCreate,
+    EducationResponse,
+    EducationUpdate,
+)
+
 __all__ = [
     "CertificationCreate",
     "CertificationResponse",
@@ -17,4 +23,7 @@ __all__ = [
     "SkillCreate",
     "SkillResponse",
     "SkillUpdate",
+    "EducationCreate",
+    "EducationResponse",
+    "EducationUpdate",
 ]
