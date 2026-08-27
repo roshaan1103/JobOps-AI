@@ -16,6 +16,15 @@ from app.schemas.education import (
     EducationUpdate,
 )
 
+from app.schemas.knowledge_base import (
+    CandidateKnowledgeBase,
+    KnowledgeBaseCertification,
+    KnowledgeBaseEducation,
+    KnowledgeBaseExperience,
+    KnowledgeBaseProject,
+    KnowledgeBaseSkill,
+)
+
 __all__ = [
     "CertificationCreate",
     "CertificationResponse",
@@ -26,4 +35,10 @@ __all__ = [
     "EducationCreate",
     "EducationResponse",
     "EducationUpdate",
+    "CandidateKnowledgeBase",
+    "KnowledgeBaseCertification",
+    "KnowledgeBaseEducation",
+    "KnowledgeBaseExperience",
+    "KnowledgeBaseProject",
+    "KnowledgeBaseSkill",
 ]

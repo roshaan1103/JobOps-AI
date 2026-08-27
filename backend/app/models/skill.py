@@ -9,32 +9,19 @@ from app.db.session import Base
 class Skill(Base):
     __tablename__ = "skills"
 
-    __table_args__ = (
-        UniqueConstraint(
-            "candidate_profile_id",
-            "name",
-            name="uq_candidate_skill_name",
-        ),
-    )
-
     id: Mapped[int] = mapped_column(
         primary_key=True,
         index=True,
     )
 
     candidate_profile_id: Mapped[int] = mapped_column(
-        ForeignKey(
-            "candidate_profiles.id",
-            ondelete="CASCADE",
-        ),
+        ForeignKey("candidate_profiles.id", ondelete="CASCADE"),
         nullable=False,
-        index=True,
     )
 
     name: Mapped[str] = mapped_column(
         String(255),
         nullable=False,
-        index=True,
     )
 
     category: Mapped[str | None] = mapped_column(
@@ -48,7 +35,6 @@ class Skill(Base):
     )
 
     years_experience: Mapped[float | None] = mapped_column(
-        Float,
         nullable=True,
     )
 
